@@ -2,6 +2,7 @@ package com.minphone.assignment5
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.minphone.assignment5.databinding.ActivityMainBinding
@@ -9,6 +10,8 @@ import com.minphone.assignment5.databinding.ActivityMainBinding
 class MainActivity : AppCompatActivity() {
 
       private lateinit var binding: ActivityMainBinding
+
+      private val shoppingCart = mutableListOf<Product>()
 
       override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
@@ -52,11 +55,15 @@ class MainActivity : AppCompatActivity() {
                   override fun setOnViewHolderClickListener(product: Product) {
                         startActivity(ProductDetailActivity.newInstance(this@MainActivity, product))
                   }
+
+                  override fun setOnAddClickListener(product: Product) {
+                        if (!shoppingCart.contains(product)) shoppingCart.add(product)
+                  }
             })
 
             binding.rvProduct.adapter = adapter
             binding.btnViewCart.setOnClickListener {
-
+                  Toast.makeText(this, shoppingCart.toString(), Toast.LENGTH_LONG).show()
             }
       }
 }

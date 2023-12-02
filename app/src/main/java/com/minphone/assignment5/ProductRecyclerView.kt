@@ -21,6 +21,10 @@ class ProductRecyclerView(
                   binding.root.setOnClickListener {
                         listener.setOnViewHolderClickListener(product)
                   }
+
+                  binding.btnAdd.setOnClickListener {
+                        listener.setOnAddClickListener(product)
+                  }
             }
 
             fun bind(product: Product) {
@@ -56,4 +60,5 @@ class ProductRecyclerView(
 
 interface ClickListener {
       fun setOnViewHolderClickListener(product: Product)
+      fun setOnAddClickListener(product: Product)
 }
