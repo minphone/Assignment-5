@@ -3,4 +3,7 @@
     <string name="btn_start_quiz">Start Quiz</string>
     <string name="btn_submit">Submit</string>
     <string name="btn_reset">Reset</string>
+    <string name="btn_add">Add</string>
+    <string name="btn_view_cart">View Cart</string>
+    <string name="tv_home">Home</string>
 </resources>
